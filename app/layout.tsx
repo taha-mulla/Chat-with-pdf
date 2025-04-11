@@ -1,12 +1,18 @@
-import React from 'react'
-import { ClerkProvider } from '@clerk/nextjs'
+import { ClerkProvider } from "@clerk/nextjs";
+import "./globals.css";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>{children}</body>
+        <body className="min-h-screen h-screen overflow-hidden flex flex-col">
+          {children}
+        </body>
       </html>
     </ClerkProvider>
-  )
+  );
 }
